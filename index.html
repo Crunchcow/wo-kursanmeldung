@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kursanmeldung – Westfalia Osterwick</title>
+  <meta name="description" content="Einfache Kursanmeldung mit Name, E-Mail und Telefonnummer.">
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <img src="assets/img/logo.png" alt="Vereinslogo" class="logo" />
+      <div class="title-wrap">
+        <h1 class="site-title">Kursanmeldung</h1>
+        <p class="site-subtitle">Schnell & unkompliziert anmelden – max. 10 Plätze, danach Warteliste.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Kursbeschreibung -->
+    <section class="card">
+      <h2>Kursbeschreibung</h2>
+      <p>
+        <strong>Kurs:</strong> <span id="course-name">Beispielkurs – Rückenfit</span><br>
+        <strong>Termin:</strong> <span id="course-datetime">Mittwochs, 19:00–20:00 Uhr</span><br>
+        <strong>Ort:</strong> <span id="course-location">Vereinsheim – Saal</span>
+      </p>
+      <p id="course-description">
+        Sanftes Training für Stabilität und Mobilität. Ideal für Einsteiger:innen. 
+        Maximal 10 Teilnehmende. Ab der 11. Anmeldung führen wir automatisch eine Warteliste.
+      </p>
+    </section>
+
+    <!-- Anmeldeformular -->
+    <section class="card">
+      <h2>Jetzt anmelden</h2>
+
+      <!-- Feedbackbereich (wird per JS gefüllt) -->
+      <div id="feedback" role="status" aria-live="polite" class="feedback"></div>
+
+      <form id="signup-form" novalidate>
+        <!-- Kurs-ID (hidden) – später wichtig für den Flow -->
+        <input type="hidden" id="course-id" name="kursId" value="Rueckenfit-2025-09" />
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Vollständiger Name*</label>
+            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Max Mustermann">
+            <small class="hint">Pflichtfeld</small>
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-Mail*</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="max@beispiel.de" inputmode="email">
+            <small class="hint">Wir schicken dir eine Bestätigung</small>
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+49 170 1234567" inputmode="tel">
+            <small class="hint">Optional – für Rückfragen</small>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="checkbox">
+              <input id="privacy" name="privacy" type="checkbox" required>
+              <span>Ich habe die Datenschutzhinweise gelesen und stimme der Verarbeitung meiner Daten zur Kursanmeldung zu.*</span>
+            </label>
+            <small class="hint">Pflichtfeld</small>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Anmelden</button>
+          <p class="disclaimer">Mit * markierte Felder sind Pflicht.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="meta">
+      <p class="muted">
+        Hinweis: Die Anmeldung ist derzeit im <em>Demo-Modus</em>. 
+        Das Absenden testet nur die Oberfläche. In <strong>Block 3</strong> verbinden wir das Formular 
+        mit dem Power-Automate-Flow (SharePoint-Listen).
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Westfalia Osterwick – Kursanmeldung</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
